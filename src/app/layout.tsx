@@ -1,60 +1,60 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-  display: 'swap'
-})
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  display: 'swap'
-})
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: 'Rotador de Matrices NxN | Visualizador de Rotaciones 90°',
+  title: "Rotador de Matrices NxN | Visualizador de Rotaciones 90°",
   description:
-    'Herramienta gratuita para rotar matrices cuadradas NxN 90 grados. Visualiza en tiempo real las rotaciones horarias y antihorarias. Perfecta para estudiantes y profesionales de matemáticas, programación y ciencias de la computación.',
+    "Herramienta gratuita para rotar matrices cuadradas NxN 90 grados. Visualiza en tiempo real las rotaciones horarias y antihorarias. Perfecta para estudiantes y profesionales de matemáticas, programación y ciencias de la computación.",
   keywords:
-    'matriz, rotación matriz, rotación 90 grados, matriz NxN, visualizador matriz, rotación horaria, rotación antihoraria, matemáticas, transformación matriz, álgebra lineal, programación, ciencias computación',
-  authors: [{ name: 'Tu Nombre' }],
-  creator: 'Tu Nombre',
-  publisher: 'Tu Nombre',
+    "matriz, rotación matriz, rotación 90 grados, matriz NxN, visualizador matriz, rotación horaria, rotación antihoraria, matemáticas, transformación matriz, álgebra lineal, programación, ciencias computación",
+  authors: [{ name: "Tu Nombre" }],
+  creator: "Tu Nombre",
+  publisher: "Tu Nombre",
   formatDetection: {
     email: false,
     address: false,
-    telephone: false
+    telephone: false,
   },
-  metadataBase: new URL('https://tu-dominio.com'),
+  metadataBase: new URL("https://tu-dominio.com"),
   alternates: {
-    canonical: '/'
+    canonical: "/",
   },
   openGraph: {
-    title: 'Rotador de Matrices NxN | Visualizador de Rotaciones 90°',
+    title: "Rotador de Matrices NxN | Visualizador de Rotaciones 90°",
     description:
-      'Herramienta gratuita para rotar matrices cuadradas NxN 90 grados. Visualiza en tiempo real las rotaciones horarias y antihorarias. Perfecta para estudiantes y profesionales de matemáticas, programación y ciencias de la computación.',
-    url: 'https://tu-dominio.com',
-    siteName: 'Rotador de Matrices',
+      "Herramienta gratuita para rotar matrices cuadradas NxN 90 grados. Visualiza en tiempo real las rotaciones horarias y antihorarias. Perfecta para estudiantes y profesionales de matemáticas, programación y ciencias de la computación.",
+    url: "https://tu-dominio.com",
+    siteName: "Rotador de Matrices",
     images: [
       {
-        url: '/og-image.jpg',
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: 'Visualizador de Rotación de Matrices NxN - Herramienta interactiva para rotar matrices 90 grados'
-      }
+        alt: "Visualizador de Rotación de Matrices NxN - Herramienta interactiva para rotar matrices 90 grados",
+      },
     ],
-    locale: 'es_ES',
-    type: 'website'
+    locale: "es_ES",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Rotador de Matrices NxN | Visualizador de Rotaciones 90°',
+    card: "summary_large_image",
+    title: "Rotador de Matrices NxN | Visualizador de Rotaciones 90°",
     description:
-      'Herramienta gratuita para rotar matrices cuadradas NxN 90 grados. Visualiza en tiempo real las rotaciones horarias y antihorarias. Perfecta para estudiantes y profesionales de matemáticas, programación y ciencias de la computación.',
-    images: ['/og-image.jpg']
+      "Herramienta gratuita para rotar matrices cuadradas NxN 90 grados. Visualiza en tiempo real las rotaciones horarias y antihorarias. Perfecta para estudiantes y profesionales de matemáticas, programación y ciencias de la computación.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -62,20 +62,20 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1
-    }
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   verification: {
-    google: 'tu-codigo-de-verificacion'
-  }
-}
+    google: "tu-codigo-de-verificacion",
+  },
+};
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="es">
@@ -92,7 +92,11 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-tap-highlight" content="no" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
-  )
+  );
 }
