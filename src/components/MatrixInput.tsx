@@ -4,6 +4,7 @@ interface MatrixInputProps {
   value: string;
   onChange: (value: string) => void;
   onSubmit: (e: React.FormEvent) => void;
+  onClear?: () => void;
   isLoading?: boolean;
 }
 
@@ -11,6 +12,7 @@ export const MatrixInput = ({
   value,
   onChange,
   onSubmit,
+  onClear,
   isLoading = false,
 }: MatrixInputProps) => {
   return (
@@ -21,12 +23,28 @@ export const MatrixInput = ({
       aria-label="Formulario de rotación de matriz"
     >
       <div>
-        <label
-          htmlFor="matrix-input"
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-        >
-          Ingresa la matriz (formato JSON)
-        </label>
+        <div className="flex items-center justify-between mb-2">
+          <label
+            htmlFor="matrix-input"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          >
+            Ingresa la matriz (formato JSON)
+          </label>
+          {value && (
+            <button
+              type="button"
+              onClick={() => {
+                onChange("");
+                onClear?.();
+              }}
+              disabled={isLoading}
+              className="text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Limpiar matriz"
+            >
+              Limpiar
+            </button>
+          )}
+        </div>
         <textarea
           id="matrix-input"
           value={value}

@@ -12,12 +12,16 @@ import {
 
 export default function Home() {
   const [input, setInput] = useState("");
-  const { inputMatrix, rotatedMatrix, error, isLoading, rotate } =
+  const { inputMatrix, rotatedMatrix, error, isLoading, rotate, reset } =
     useMatrixRotation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     rotate(input);
+  };
+
+  const handleClear = () => {
+    reset();
   };
 
   return (
@@ -30,6 +34,7 @@ export default function Home() {
             value={input}
             onChange={setInput}
             onSubmit={handleSubmit}
+            onClear={handleClear}
             isLoading={isLoading}
           />
 
